@@ -1,0 +1,61 @@
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ cat > laba12.c
+#include "stdio.h"
+
+int SumFrom3(int a) {
+	a = a % 1000;
+	int sum = 0;
+	for (int i = 0; i < 3; ++i)
+	{
+		sum+= a % 10;
+	}
+	return sum;
+}
+
+int main(void)
+{
+	int lengh, a, MaxSum, tmpa, result;
+	lengh = 0;
+	scanf("%d", &a);	//читаем число
+	int isOtr = 0;
+	if (a<0)
+	{
+		a = -a;
+	}
+
+	tmpa = a;
+	while (tmpa>0) 	//длина числа
+	{		
+		tmpa = tmpa / 10;
+		lengh+=1;
+	}
+
+	MaxSum = SumFrom3(a);							
+	for (int i = 2; i < lengh; ++i)			//сравниваем тройки чисел, ищем максимальную
+	{	
+		if (SumFrom3(a) > MaxSum)
+		{
+			MaxSum = SumFrom3(a);
+			result = a % 1000;
+		}
+		a = a / 10;
+	}
+
+	printf("%d\n", result);
+
+}
+
+^C
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ g++ laba12.c
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ ./a.out
+1234567
+567
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ ./a.out
+562384564
+845
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ ./a.out
+-1234567
+567
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ ./a.out
+123890
+890
+

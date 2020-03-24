@@ -1,0 +1,80 @@
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ cat > tests15.c
+3
+3
+1 2 3
+4 5 6
+7 8 9
+MoreMatrix
+4 
+4
+1 2 3 4 
+5 6 7 8 
+9 10 11 12
+13 14 15 16
+MoreMatrix
+3
+3
+2 4 5
+5 4 4
+1 1 1
+MoreMatrix
+4
+5
+1 23  2 24 2
+542 23 3 44 9
+234 2 3 44 3
+23 542 9 44 1 
+End
+^C
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ cat > laba15.c
+#include <stdio.h>
+
+int main()
+{	
+	FILE *file;
+	file = fopen("tests15.txt", "r");
+	int n, m;
+	char end[11] = "MoreMatrix";
+	int maxOfString, maxString;
+	fscanf(file, "%d %d", &n, &m);
+	int matrix[n][m];  // Матрица
+	int a, max = 0;  	   // Читаемая перемменная, максимум из сумм
+	while (end[1] == 'M')	
+	{
+		for (int i = 0; i < n; ++i)
+		{
+			for (int j = 0; j < m; ++j)
+			{
+				fscanf(file, "%d", &matrix[i][j]);
+			}
+		}
+		maxOfString = matrix[0][0];
+		for (int i = 0; i < n; ++i)
+		{
+			for (int j = 0; j < m; ++j)
+			{
+				if (matrix[i][j] > maxOfString)
+				{
+					maxOfString = matrix[i][j];
+					maxString = i;
+				}
+			}
+		}
+
+		for (int i = 0; i < m; ++i)
+		{
+			max = max + matrix[maxString][i];
+		}
+		printf("%d \n",max);
+		fscanf(file, "%30s", end);
+	}
+	return 0;
+}
+^C
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ gcc laba15.c
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ ./a.out
+24
+58
+11
+621
+

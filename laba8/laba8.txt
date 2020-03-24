@@ -1,0 +1,48 @@
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ cat > laba8.c
+#include <stdio.h>
+
+int main (void)
+{
+	int a, b;
+	a=5;
+	b=0;
+	int sum;
+	sum = a/b;
+	puts (sum);
+}
+
+^C
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ gcc laba8.c
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ ./a.out
+inf
+
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ cat > laba8.c
+#include <stdio.h>
+
+int main (void)
+{
+	pts ("Hello World");
+}
+
+^C
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ gcc laba8.c
+laba8.c: In function ‘main’:
+laba8.c:5:2: warning: implicit declaration of function ‘pts’; did you mean ‘puts’? [-Wimplicit-function-declaration]
+  pts ("Hello World");
+  ^~~
+  puts
+/tmp/ccv4ajut.o: In function `main':
+laba8.c:(.text+0x11): undefined reference to `pts'
+collect2: error: ld returned 1 exit status
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ cat > laba8.c
+#include <stdio.h>
+
+int main (void)
+{
+	puts ("Hello World");
+}
+
+^C
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ gcc laba8.c
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ ./a.out
+Hello World

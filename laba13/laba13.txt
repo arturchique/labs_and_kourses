@@ -1,0 +1,74 @@
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ cat > laba13.c
+
+#include <stdio.h>	
+#include <ctype.h>
+
+int main()
+{
+	int flag = 0;
+	unsigned int word1, word2, tmp;
+	char c;
+	c = tolower(getchar());
+	if (c >= 'a' || c <= 'z')
+	{
+		word1 = 1u << (c-'a');
+		word2 = (1u << (c-'a')) & 0;
+	}
+	while (c != ' ') {
+		word1 = word1 | (1u <<(c-'a'));
+		c = tolower(getchar());
+	}
+
+	while (c != '\n')
+	{
+		c = tolower(getchar());
+		if (c == ' ')
+		{
+			continue;
+		}
+		while (c!= ' ') {
+			word2 = word2 | (1u <<(c-'a'));
+			c = tolower(getchar());
+		}
+		if ((word2 & word1) != 0 )
+		{
+			flag = 0;
+			tmp = word1;
+			word1 = word2;
+			word2 = tmp;
+		} else
+		{
+			printf("Есть\n");
+			break;
+		}
+
+
+	}
+	if (flag == 0)
+	{
+		printf("Нет\n");
+	}
+
+	return 0;
+}
+^C
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ gcc laba13.c
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ ./a.out
+asfhj jhfasd fdhj jhfsdf 
+Нет
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ ./a.out
+asdf ghjk lzxcb
+Есть
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ ./a.out
+qwer erty tyui 
+Heт
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ ./a.out
+qwert yuioo pasd
+Есть
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ ./a.out
+ooo ooo OOO ooo
+Нет
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол$ ./a.out
+yyy uuu iii ppp 
+Есть
+

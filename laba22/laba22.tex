@@ -1,0 +1,109 @@
+\documentclass[12pt,cmcyralt]{book} %тип документа
+\usepackage[utf8]{inputenc} % кодировка
+\usepackage[russian]{babel}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts} % математические шрифты
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3.5cm,right=3.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{ragged2e}
+
+%page header
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[LE,RO]{{\it\thepage}}
+\fancyhead[CO]{{\it Определение производной}}
+\setcounter{page}{82}
+\fancyfoot{}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}
+\ 
+
+\vspace{40pt}
+{\it Г\hspace{4 pt}л\hspace{4 pt}а\hspace{4 pt}в\hspace{4 pt}а\hspace{4 pt} \hspace{4 pt}5}
+
+\vspace{12pt}
+{\large\textbf{ОПРЕДЕЛЕНИЕ ПРОИЗВОДНОЙ}}
+
+\vspace{12pt}
+\textbf{ВВЕДЕНИЕ}
+
+\end{center}
+Пусть {\it f}(x) определена в окрестности значения $ x = \xi $, \linebreak т. е. для $|x - \xi | < p$ с надлежаще выбранным $p > 0$. Тогда\linebreak $f(\xi + h) - f(\xi)$, где $0 < |h| < p$, есть приращение функции\linebreak при переходе от $x = \xi$ к $x = \xi + h$. Это приращеие $> 0$,\linebreak или $= 0$, или $< 0$; приращение же $h$ переменной предпола-\linebreakгается $> 0$ или $< 0$ (но не $= 0$, так как мы будем сейчас\linebreak делить на $h$). Таким образом, частное ("`разностное отноше-\linebreakние"')  $\frac{(f(\xi + h)-f(\xi))}{h}$ есть $\frac{\text{приращение \ } f(x)}{\text{приращение \ }x}$ Может случиться,\linebreak что оно имеет $\lim\limits_{h = 0}$.
+
+\textbf{Примеры.} 1) Пусть
+
+$$f(x) = x^2.$$
+
+\noindent Тогда для каждого $\xi$ и $h \neq 0$ имеем:
+
+$$\frac{f(\xi + h)-f(\xi)}{h} = \frac{(\xi+h)^2-\xi^2}{h}=\frac{2\xi h + h^2}{h}=2\xi + h$$
+
+\noindent и из
+
+$$\lim_{h=0}(2\xi+h) = 2\xi$$
+
+\noindent следует 
+
+$$\lim_{h=0} \frac{f(\xi + h)-f(\xi)}{h} = 2\xi$$
+
+2) Пусть
+
+$$f(x) =
+\begin{cases} 
+x^2 \  \text{для рациональных,}\\
+0 \ \ \text{для иррациональных.}
+\end{cases}
+$$
+
+\noindent Тогда для $\xi = 0$, $h \neq 0$ имеем
+$$\frac{f(\xi + h)-f(\xi)}{h} = \frac{f(h)}{h} = 
+\begin{cases} 
+h \  \text{для рациональных,}\\
+0 \ \text{для иррациональных,}
+\end{cases}$$ 
+
+\newpage
+\pagestyle{fancy} 
+\noindent з\hspace{1 pt}н\hspace{1 pt}а\hspace{1 pt}ч\hspace{1 pt}и\hspace{1 pt}т\hspace{1 pt},\hspace{1 pt} \hspace{1 pt}в\hspace{1 pt}о\hspace{1 pt} \hspace{1 pt}в\hspace{1 pt}с\hspace{1 pt}е\hspace{1 pt}х\hspace{1 pt} \hspace{1 pt}с\hspace{1 pt}л\hspace{1 pt}у\hspace{1 pt}ч\hspace{1 pt}а\hspace{1 pt}я\hspace{1 pt}х 
+
+\[
+\left | \frac{f(\xi + h) - f(\xi)}{h} \right | <= |h| ,
+\]
+
+\noindent о\hspace{1 pt}т\hspace{1 pt}к\hspace{1 pt}у\hspace{1 pt}д\hspace{1 pt}а\hspace{1 pt} \hspace{1 pt}с\hspace{1 pt}л\hspace{1 pt}е\hspace{1 pt}д\hspace{1 pt}у\hspace{1 pt}е\hspace{1 pt}т\hspace{1 pt},\hspace{1 pt} \hspace{1 pt}ч\hspace{1 pt}т\hspace{1 pt}о 
+
+\[
+\lim\limits_{h = 0} \frac{f(\xi + h)-f(\xi)}{h} = 0 .
+\]
+
+\noindent О\hspace{1 pt}д\hspace{1 pt}н\hspace{1 pt}а\hspace{1 pt}к\hspace{1 pt}о
+
+$$\lim\limits_{h = 0} \frac{f(\xi + h)-f(\xi)}{h}\leqno (1) $$
+
+\noindent не существует ни для какого $\xi \neq 0$. Действительно, если $\xi$\linebreak рациональное, то для каждого $p>0$ найдется иррациональ-\linebreakное $\xi + h$ с $0<h<p$, и при этом $h$ будем иметь\linebreak
+
+$$\frac{f(\xi + h)-f(\xi)}{h} = - \frac{\xi^2}{h}\leqno (2) $$
+
+\noindent если же $\xi$ иррационально, то для каждого $p>0$ найдется\linebreak рациональное $\xi + h$ с $0<h<p$, и при этом h будем иметь\linebreak
+
+$$\frac{f(\xi + h)-f(\xi)}{h}=-\frac{(\xi + h)^2}{h}\leqno (3) $$
+
+\noindent В обоих случаях существование предела (1) исключено.\linebreak В самом деле, если бы он существовал и был бы, скажем,\linebreak равен $t$, то для $0<|h|<\varepsilon$ с надлежаще выбранным $\varepsilon >0$\linebreak мы имели бы 
+
+$$\left|\frac{f(\xi + h)-f(\xi)}{h} - t\right| < 1,$$
+
+\noindent о\hspace{1 pt}т\hspace{1 pt}к\hspace{1 pt}у\hspace{1 pt}д\hspace{1 pt}а
+
+$$\left|\frac{f(\xi + h)-f(\xi)}{h}\right| < |t| + 1$$
+
+\noindent тогда как и надлежащим выбором значения $p<\varepsilon$ правая часть\linebreak в (2) и (3) может быть сделана по абсолютной величине\linebreak больше $|t| + 1$ для всех $h$ с $0<h<p$.
+
+3) Пусть
+
+$$f(x) = |x|$$
+
+\end{document}

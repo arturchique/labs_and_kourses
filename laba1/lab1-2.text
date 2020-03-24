@@ -1,0 +1,147 @@
+Лабораторная работа
+Протокол выполнения лабораторной работы:
+
+artur@artur-Lenovo-ideapad-530S-15IKB:~$ uptime
+ 10:58:36 up 2 min,  1 user,  load average: 0,74, 0,68, 0,29
+artur@artur-Lenovo-ideapad-530S-15IKB:~$ whoami
+artur
+artur@artur-Lenovo-ideapad-530S-15IKB:~$ tty
+/dev/pts/0
+artur@artur-Lenovo-ideapad-530S-15IKB:~$ hostname
+artur-Lenovo-ideapad-530S-15IKB
+artur@artur-Lenovo-ideapad-530S-15IKB:~$ uname
+Linux
+artur@artur-Lenovo-ideapad-530S-15IKB:~$ uname -a
+Linux artur-Lenovo-ideapad-530S-15IKB 5.0.0-23-generic #24~18.04.1-Ubuntu SMP Mon Jul 29 16:12:28 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+artur@artur-Lenovo-ideapad-530S-15IKB:~$ pwd
+/home/artur
+artur@artur-Lenovo-ideapad-530S-15IKB:~$ man
+Какая справочная страница вам нужна?
+artur@artur-Lenovo-ideapad-530S-15IKB:~$ man pwd
+artur@artur-Lenovo-ideapad-530S-15IKB:~$ ls
+ Видео       Загрузки      Музыка         'Рабочий стол'
+ Документы   Изображения   Общедоступные   Шаблоны
+artur@artur-Lenovo-ideapad-530S-15IKB:~$ ls -l
+итого 32
+drwxr-xr-x 2 artur artur 4096 сен  6 23:50  Видео
+drwxr-xr-x 2 artur artur 4096 сен  8 00:48  Документы
+drwxr-xr-x 2 artur artur 4096 сен  7 13:22  Загрузки
+drwxr-xr-x 2 artur artur 4096 сен  6 23:50  Изображения
+drwxr-xr-x 2 artur artur 4096 сен  6 23:50  Музыка
+drwxr-xr-x 2 artur artur 4096 сен  6 23:50  Общедоступные
+drwxr-xr-x 2 artur artur 4096 сен 20 19:18 'Рабочий стол'
+drwxr-xr-x 2 artur artur 4096 сен  6 23:50  Шаблоны
+artur@artur-Lenovo-ideapad-530S-15IKB:~$ date
+Вт сен 24 15:01:11 MSK 2019
+artur@artur-Lenovo-ideapad-530S-15IKB:~$ ps
+  PID TTY          TIME CMD
+ 1884 pts/0    00:00:00 bash
+ 2480 pts/0    00:00:00 ps
+artur@artur-Lenovo-ideapad-530S-15IKB:~$ cd Документы
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ ls
+lab1-2.text
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ rm lab1-2.text
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ ls
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ cd ..
+artur@artur-Lenovo-ideapad-530S-15IKB:~$ ls
+ Видео       Загрузки      Музыка         'Рабочий стол'
+ Документы   Изображения   Общедоступные   Шаблоны
+artur@artur-Lenovo-ideapad-530S-15IKB:~$ cd Документы
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ emacs lab1-2.text
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ ls
+lab1-2.text
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ cat >> lab1-2.text
+Лабораторная работа
+Протокол выполнения лабораторной работы:
+^C
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ mkdir f1 f2 f3
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ ls
+f1  f2  f3  lab1-2.text
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ cd f1
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы/f1$ touch file1
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы/f1$ cd ..
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ cd f2
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы/f2$ touch file2
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы/f2$ cd ../f3
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы/f3$ touch file3
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы/f3$ cd ..
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ cat file1 file2 > file3
+cat: file1: Нет такого файла или каталога
+cat: file2: Нет такого файла или каталога
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ cat f1/file1 f2/file2 > f3/file3
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ ls f1
+file1
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ ls f3
+file3
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ mv f1/file1 dir/f2
+mv: невозможно переместить 'f1/file1' в 'dir/f2': Нет такого файла или каталога
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ mv f1/file1 f2
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ ls f1
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ ls f2
+file1  file2
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ rmdir f1
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ ls
+f2  f3  file3  lab1-2.text
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ rm f2/file2
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ rm f2/file1
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ rmdir f2
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ ls
+f3  file3  lab1-2.text
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ rm file3
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ ls
+f3  lab1-2.text
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ rmdir f3
+rmdir: не удалось удалить 'f3': Каталог не пуст
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ rm f3/file3
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ rmdir f3
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ ls
+lab1-2.text
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Документы$ bc
+bc 1.07.1
+Copyright 1991-1994, 1997, 1998, 2000, 2004, 2006, 2008, 2012-2017 Free Software Foundation, Inc.
+This is free software with ABSOLUTELY NO WARRANTY.
+For details type `warranty'. 
+1+2
+3
+3*3
+9
+3/2
+1
+4/3
+1
+3/4
+0
+23^8
+78310985281
+obase = 2
+1132
+10001101100
+ibase= 2
+1100
+1100
+obase = 1000
+1001001
+111
+ibase = 1000
+1737
+1737
+obase = 12
+12
+10
+ibase = 12
+38109
+38109
+obase = 16
+2313
+909
+1909923
+1D24A3
+ibase = 16
+12321A21
+12321A21
+obase = 10
+ibase = 10
+321
+321
+quit
+
