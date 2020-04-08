@@ -1,0 +1,24 @@
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол/polinina_laba$ chmod +x ./script
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол/polinina_laba$ ls
+13n.c  laba15.c  myscript  script  Список.txt
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол/polinina_laba$ ./script ?
+Программа заменяет суффиксы файлов в директории на первый символ в названии этого файла, если его размер меньше заданного. Если не хотите выполнять данное действие, нажмите ctrl+c.
+Bведите размер файла:
+500
+Вы согласны поменять суффиксы файлов в данной директории? (y/n)
+y
+Выполнено
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол/polinina_laba$ ls
+13n.c  laba15.c  myscript  script  Список.С
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол/polinina_laba$ ./script ?
+Программа заменяет суффиксы файлов в директории на первый символ в названии этого файла, если его размер меньше заданного. Если не хотите выполнять данное действие, нажмите ctrl+c.
+Bведите размер файла:
+^C  
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол/polinina_laba$ ./script
+Bведите размер файла:
+3000
+Вы согласны поменять суффиксы файлов в данной директории? (y/n)
+y
+Выполнено
+artur@artur-Lenovo-ideapad-530S-15IKB:~/Рабочий стол/polinina_laba$ ls
+13n.1  laba15.l  myscript.m  script.s  Список.С
