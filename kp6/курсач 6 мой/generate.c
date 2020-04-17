@@ -13,6 +13,7 @@ int readperson(FILE *in, person *stud){
 
     return !feof(in);
 }
+
 int writeperson_bin(FILE *out, person *stud){
     fwrite(stud->lname, sizeof(char), NAME_SIZE, out);
     fwrite(stud->initials, sizeof(char), NAME_SIZE, out);
@@ -23,6 +24,7 @@ int writeperson_bin(FILE *out, person *stud){
     fwrite(stud->essay, sizeof(char), NAME_SIZE, out);
 
 }
+
 int main(int argc, char *argv[]){
     FILE *in = fopen(argv[1], "r");
     FILE *out = fopen(argv[2], "w");
