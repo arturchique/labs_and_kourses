@@ -42,7 +42,6 @@ int main(int argc, char* argv[]) {
 	}
 
 	person stud;
-
 	while (readperson(in, &stud)) {
 		writeperson_bin(out, &stud);
 	};
