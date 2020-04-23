@@ -1,6 +1,7 @@
 #ifndef _person_h
 #define _person_h
 
+
 typedef struct {
 	char fam[20]; // Фамилия
 	char init[9]; // Инициалы
@@ -11,5 +12,6 @@ typedef struct {
 	int discra; // Оценка по дискретной математике
 	int matan; // Оценка по математическому анализу
 } person;
+
 
 #endif
