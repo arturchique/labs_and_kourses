@@ -1,28 +1,27 @@
 #!/bin/bash
 
-if [ $1 = ? ] 
+if [ $1 = "?" ] 
 then 
 	echo Программа заменяет суффиксы файлов в директории на первый символ в названии этого файла, если его размер меньше заданного. Если не хотите выполнять данное действие, нажмите ctrl+c.
-fi
+else
 echo "Bведите размер файла:"
 read size
-echo "Вы согласны поменять суффиксы файлов в данной директории? (y/n)"
-read agree
 
-if [ $agree = y ]
-then
 	for file in "$(pwd)"/*
 	do
-		newfile="${file/$(pwd)\//}"
-		newfile=$(echo $newfile | sed 's/\.[^.]*$//')
-		newfile=$(echo "$newfile.${newfile:0:1}")
-		if [ $(stat -c %s "$file") -lt $size ] && [ -f "$file" ]
+		if [ "$( ls "$file" )" !=  "/home/artur/Рабочий стол/polinina_laba/script" ] && [ $(stat -c %s "$file") -lt $size ] && [ -f "$file" ]
 		then 
-			mv "$file" "$newfile"
+		echo "Вы согласны поменять суффикс файлa $(ls "$file") в данной директории? (y/n)"
+		read agree
+
+			if [ $agree = "y" ]
+			then
+				newfile="${file/$(pwd)\//}"
+				newfile=$(echo $newfile | sed 's/\.[^.]*$//')
+				newfile=$(echo "$newfile.${newfile:0:1}")
+				mv "$file" "$newfile"
+			fi
+
 		fi
 	done
-	echo Выполнено
-else
-	echo Скрипт не будет выполнен
 fi
-
