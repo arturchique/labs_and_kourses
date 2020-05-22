@@ -8,18 +8,18 @@ int equal(Iter* lhs, Iter* rhs)
 Iter next(Iter* i)
 {
 	i->node = i->node->next;
-	return i
+	return *i;
 }
 
 Iter prev(Iter* i)
 {
 	i->node = i->node->prev;
-	return i;
+	return *i;
 }
 
 Data fetch(Iter* i)
 {
-	return i - node->data;
+	return i->node->data;
 }
 
 void store(Iter* i, Data t)
@@ -41,15 +41,24 @@ void create(List* l)
 
 Iter last(List* l) 
 {
-	Iter res = l->head;
+	Iter res;
+	res.node = l->head;
+	return res;
+}
+
+Iter first(List* l)
+{
+	Iter res;
+	res.node = l->head->next;
 	return res;
 }
 
 Iter insert(List* l, Iter* i, Data t)
 {
-	Iter res = l->top;
+	Iter res;
+	res.node= l->top;
 	if (!res.node)
-		return Last(l);
+		return last(l);
 	l->top = l->top->next;
 	res.node->data = t;
 	res.node->next = i->node;
@@ -60,15 +69,15 @@ Iter insert(List* l, Iter* i, Data t)
 	return res;
 }
 
-Iter delete(List* l, Iter* i)
+Iter _delete(List* l, Iter* i)
 {
 	Iter res = last(l);
 	if (equal(i, &res))
 		return res;
 	res.node = i->node->next;
 	res.node->prev = i->node->prev;
-	i->prev->next = res.node;
-	i->size--;
+	i->node->prev->next = res.node;
+	l->size--;
 	i->node->next = l->top;
 	l->top = i->node;
 	i->node = 0;
@@ -82,23 +91,20 @@ Iter search(List* l, int i)
 	Iter res = first(l);
 	while (j<i)
 	{
-		res = next(res);
+		res = next(&res);
 	}
-	return res;
-}
-
-Iter first(List* l)
-{
-	Iter res = l->head->next;
 	return res;
 }
 
 void printlist(List* l) 
 {
 	int i;
+	Iter k;
+	k = first(l);
 	while (i < l->size)
 	{
-		printf("%d) %d %s", i, list->item[i].data.key, list->item[i].data.value);
+		printf("%d) %d %s", i, k.node->data.key, k.node->data.value);
+		k = next(&k);
 		i++;
 	}
 }

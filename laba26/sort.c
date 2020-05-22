@@ -3,22 +3,26 @@
 
 void udtSort(List* list)
 {	
+	Iter k, kprev, tmp, tmpprev;
+	k = first(list);
 	int j;
-	Iter k;
-	Item tmp;
 	for (int i = 1; i < list->size; i++)
 	{
-		if (list->item[i].data.key > list->item[i-1].data.key)
+		kprev = prev(&k);
+		if (kprev.node->data.key > k.node->data.key)
 		{
-			tmp = list->item[i];
-			delete(list, i);
+			tmp = k;
+			tmpprev = kprev;
 			j = i;
-			while (tmp.data.key > list->item[j-1].data.key)
+			while (tmpprev.node->data.key < tmp.node->data.key)
 			{
+				tmp = tmpprev;
+				tmpprev = prev(&tmp);
 				j--;
 			}
+			_delete(list, &k);
 			k = search(list, j);
-			insert(list, k, tmp.data)
+			insert(list, &k, tmp.node->data);
 		}
 	}
 }

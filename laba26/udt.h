@@ -36,14 +36,15 @@ typedef struct _List
 	Item* head;
 	int size;
 	Item* top;
-	Item item[POOL_SIZE + 1]
+	Item item[POOL_SIZE + 1];
 
 } List;
 
 
 // Функции
 
-Iter delete(List* l, Iter* i);
+Iter _delete(List* l, Iter* i);
+Iter first(List* l);
 Iter insert(List* l, Iter* i, Data t);
 Iter last(List* l);
 void create(List* l);

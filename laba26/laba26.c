@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include "sort.h"
 #include "sort.c"
+#include <string.h>
 #include "udt.h"
 #include "udt.c"
 
 
-void getLine(char* str, const int size);
 
 int main(void)
 {
@@ -13,7 +13,8 @@ int main(void)
 	char tmpCh;
 	List udt;
 	Item item;
-
+	Iter tmp;
+	
 	create(&udt);
 
 	do
@@ -35,13 +36,16 @@ int main(void)
 			printf("Введите ключ: ");
 			scanf("%d", &item.data.key);
 			printf("Введите Строку: ");
-			getLine(item.data.value, sizeof(item.data.value));
-			printf("Введите место, в которое нужно вставить элемент: )");
+			scanf("%s", item.data.value);
+			printf("Введите место, в которое нужно вставить элемент: ");
 			scanf("%d", &place);
 
-			if (insert(&udt, search(&udt, place), item.data))
+			tmp = search(&udt, place);
+			if (udt.size < POOL_SIZE)
+			{
+				insert(&udt, &tmp, item.data);
 				printf("Элемент с ключом %d и строкой '%s' добавлен успешно на %d место\n", item.data.key, item.data.value, place);
-			else
+			}else
 				printf("Список заполнен\n");
 		}
 		break;
@@ -52,9 +56,10 @@ int main(void)
 			{
 				printf("Введите индекс элемента, который нужно удалить: ");
 				scanf("%d", &place);
-				delete(&udt, search(&udt, place));
+				tmp = search(&udt, place);
+				_delete(&udt, &tmp);
 
-				printf("Элемент с ключом %d и строкой '%s' удален успешно\n", item.data.key, item.data.val);
+				printf("Элемент с ключом %d и строкой '%s' удален успешно\n", item.data.key, item.data.value);
 			}
 			else
 				printf("Список пуст\n");
@@ -69,7 +74,7 @@ int main(void)
 
 		case 4:
 		{
-			sort(&udt);
+			udtSort(&udt);
 		}
 		break;
 
